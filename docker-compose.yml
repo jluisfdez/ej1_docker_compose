@@ -1,0 +1,23 @@
+version: '0'
+services:
+    db:
+      image: mysql
+      environment:
+        MYSQL_ROOT_PASSWORD: "12345"
+        MYSQL_DATABASE: "prueba"
+        MYSQL_USER: "utest"
+        MYSQL_PASSWORD: "12345"
+        MYSQL_NATIVE_PASSWORD: "yes"
+      ports:
+        - "3366:3306"
+    phpmyadm:
+      image: phpmyadmin/phpmyadmin
+      ports:
+       - "8090:80" 
+      links:
+       - db:db 
+      environment:
+        MYSQL_ROOT_PASSWORD: "12345"
+        MYSQL_DATABASE: "prueba"
+        MYSQL_USER: "utest"
+        MYSQL_PASSWORD: "12345"
